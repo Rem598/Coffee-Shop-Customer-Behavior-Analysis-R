@@ -39,7 +39,7 @@ Despite being a "coffee shop," the analysis revealed that **tea** was the most p
 The $\chi^2$ test was used to determine if visit frequency is independent of age group and gender.
 
 * **Age Groups:** The analysis involved creating age groups (Teen, Young Adult, Adult, Middle-Aged, Senior). The $\chi^2$ test showed a **statistically significant relationship** between Age Group and Visit Frequency (details in `Age Chi.png`), suggesting habits differ strongly by life stage.
-* **Gender:** The test revealed **no statistically significant relationship** between Gender and Visit Frequency (details in `Gender chi.png`).
+* **Gender:** The test revealed **no statistically significant relationship** between Gender and Visit Frequency.
 
 ![Visit Frequency by Age Group Chart](https://github.com/Rem598/Coffee-Shop-Customer-Behavior-Analysis-R/blob/main/Visit%20Freq%20by%20Age%20Group.png)
 
@@ -56,6 +56,7 @@ anova_freq_sat <- aov(Satisfaction_Score ~ Visit_Frequency, data = coffee2)
 summary(anova_freq_sat)
 ```
 ![Anova](https://github.com/Rem598/Coffee-Shop-Customer-Behavior-Analysis-R/blob/main/Anova%20one.png)
+
 The resulting ANOVA table  confirmed that satisfaction scores are significantly different based on how often a customer visits.
 
 ### 5. Loyalty and Time Spent (T-Test)
@@ -66,6 +67,7 @@ A t-test was performed to compare the mean time spent in the shop by loyalty mem
 t_test_time_loyalty <- t.test(`Time_Spent (min)` ~ Loyalty_Member, data = coffee2)
 ```
 ![t-test](https://github.com/Rem598/Coffee-Shop-Customer-Behavior-Analysis-R/blob/main/t-test.png)
+
 The results confirmed a statistically significant difference: Loyalty members spend more time in the shop than non-members, confirming the value of loyalty programs in promoting longer visits and higher potential spend.
 
 ### 6. Likelihood to Recommend (Logistic Regression)
@@ -75,6 +77,7 @@ model_recommend <- glm(Would_Recommend ~ Age + Visit_Frequency + Satisfaction_Sc
                        data = coffee2, family = binomial)
 ```
 ![RecommendLikelihood](https://github.com/Rem598/Coffee-Shop-Customer-Behavior-Analysis-R/blob/main/Recommend.png)
+
 The model summary  shows that Satisfaction Score and Loyalty Status are the most significant predictors of whether a customer will recommend the shop.
 
 💡 Conclusion & Recommendations
